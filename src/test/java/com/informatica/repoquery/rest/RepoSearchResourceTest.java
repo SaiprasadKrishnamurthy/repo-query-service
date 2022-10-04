@@ -1,10 +1,8 @@
 package com.informatica.repoquery.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.informatica.repoquery.model.*;
 import com.informatica.repoquery.model.github.GithubSearchItem;
 import com.informatica.repoquery.util.SerdeUtils;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,12 +34,6 @@ public class RepoSearchResourceTest {
     @MockBean
     private RepoSearchService repoSearchService;
 
-    private ObjectMapper objectMapper;
-
-    @BeforeEach
-    void setUp() {
-        this.objectMapper = new ObjectMapper();
-    }
 
     @DisplayName("Should return a valid response")
     @Test
