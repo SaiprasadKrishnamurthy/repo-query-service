@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -21,6 +24,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Application configuration.
@@ -45,6 +50,19 @@ public class RepoQueryServiceAppConfig {
                 .build();
         restTemplate.setUriTemplateHandler(uriBuilderFactory);
         return restTemplate;
+    }
+
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.setAllowedOrigins(Collections.singletonList("*"));
+        config.setAllowedHeaders(Collections.singletonList("*"));
+        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "OPTIONS", "DELETE", "PATCH"));
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 
     @Bean
