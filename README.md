@@ -23,6 +23,7 @@ A Rest API having the following features:
 * Run ```mvn clean install```
 * To launch the application, go into the target directory and run ```java -jar app.jar```
 * To call the APIs, open http://localhost:9000/swagger-ui/index.html on your web browser.
+* Or the direct URL: `http://localhost:9000/api/v1/repos?language=java&order=DESC&page=1&size=30&sort=STARS`
 
 ### Notes
 
