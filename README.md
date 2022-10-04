@@ -29,5 +29,10 @@ A Rest API having the following features:
 * There's a unit test `RepoSearchResourceTest`
 * There's an integration test `RepoSearchResourceIT` (run using maven failsafe plugin)
 
+* API Section in Swagger looks like this:
+  ![Swagger](./API_Screenshot.png?raw=true "Swagger")
+
+
+
 
 
