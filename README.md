@@ -4,7 +4,7 @@
 
 A Rest API having the following features:
 
-* Search the congigured repositories by Programming Language.
+* Search the configured repositories by Programming Language.
 * Sort the results based on STARS, FORKS, HELP_WANTED_ISSUES, UPDATED.
 * Paginating the results.
 
