@@ -8,7 +8,7 @@ A Rest API having the following features:
 * Sort the results based on STARS, FORKS, HELP_WANTED_ISSUES, UPDATED.
 * Paginating the results.
 
-** GitHub is currently configured as the underlying source repository
+**GitHub is currently configured as the underlying source repository**
 
 ## Setup
 
