@@ -27,7 +27,7 @@ public class DefaultRepoSearchService implements RepoSearchService {
     /**
      * Templated Github search repo uri context.
      */
-    private static final String GITHUB_REPO_SEARCH_CONTEXT_URI = "/search/repositories?q=language:%s&sort=%s&order=%s&page=%s&per_page=%s";
+    private static final String GITHUB_REPO_SEARCH_CONTEXT_URI_TEMPLATE = "/search/repositories?q=language:%s&sort=%s&order=%s&page=%s&per_page=%s";
     private static final String ERROR_CODE_CANNOT_FETCH_FROM_GITHUB = "RQS00001";
 
     public DefaultRepoSearchService(@Qualifier("githubRestTemplate") final RestTemplate restTemplate) {
@@ -38,7 +38,7 @@ public class DefaultRepoSearchService implements RepoSearchService {
     public RepoSearchResponse searchReposByLanguage(final RepoSearchRequest repoSearchRequest) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        String uri = String.format(GITHUB_REPO_SEARCH_CONTEXT_URI,
+        String uri = String.format(GITHUB_REPO_SEARCH_CONTEXT_URI_TEMPLATE,
                 repoSearchRequest.getLanguage(),
                 SortBy.hyphenise(repoSearchRequest.getSortBy()),
                 repoSearchRequest.getSortDirection().toString().toLowerCase(),
